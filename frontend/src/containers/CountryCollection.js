@@ -1,5 +1,6 @@
 import React from 'react'
-import CountryCard from './CountryCard'
+import CountryCard from '../components/CountryCard'
+import { Grid } from 'semantic-ui-react'
 
 class CountryCollection extends React.Component {
 
@@ -14,9 +15,9 @@ class CountryCollection extends React.Component {
 
     render() {
         return(
-            <div>
+            <Grid columns={4} divided='vertically' relaxed>
                 {this.showCountries()}
-            </div>
+            </Grid>
         )
     }
 }
