@@ -2,18 +2,26 @@ import React from 'react';
 import { connect } from 'react-redux'
 import '../App.css';
 import CountryCollection from './CountryCollection'
-import { fetchingNations } from '../redux/actions/actions.js'
+import MainPage from './MainPage'
+import QuizPage from './QuizPage'
+import NavBar from '../components/NavBar'
+import { fetchingNations, fetchingLeaders } from '../redux/actions/actions.js'
 
 class App extends React.Component {
 
   componentDidMount() {
     this.props.fetchingNations()
+    this.props.fetchingLeaders()
   }
 
   render () {
+    let { page } = this.props
     return (
       <div>
-        <CountryCollection nations={this.props.nations}/>
+        <NavBar/>
+        {page === "main" ? <MainPage/> : null}
+        {page === "index" ? <CountryCollection nations={this.props.allNations}/> : null}
+        {page === "quiz" ? <QuizPage/> : null}
       </div>
     )
   }
@@ -22,8 +30,9 @@ class App extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    nations: state.nations
+    allNations: state.allNations,
+    page: state.currentPage
   }
 }
 
-export default connect(mapStateToProps, { fetchingNations })(App)
+export default connect(mapStateToProps, { fetchingNations, fetchingLeaders })(App)

@@ -1,12 +1,40 @@
 #leader-photo {
-    max-width: 220px;
-    max-height: 150px;
-}
-
-#country-row {
-    height: 250px;
+    height: 200px;
+    width: 200px;
 }
 
 #flag-card {
     width: 125px;
+}
+
+#leader-card {
+    width: 200px;
+}
+
+#main-page-content {
+    height: 250px;
+    min-width: 250px;
+    padding-top: 15vh;
+    margin-top: 20vh;
+    background-image: url("./images/globe-blue-gold.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#logo {
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+    margin-top: 0px;
+}
+
+#logo:hover {
+    cursor: pointer;
+}
+
+#nav {
+    width: 100%;
+    /* padding-top: 25px;
+    position: fixed;
+    z-index: 2; */
 }

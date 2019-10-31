@@ -1,25 +1,26 @@
 import React from 'react'
-import CountryCard from '../components/CountryCard'
-import { Grid } from 'semantic-ui-react'
+import CountryRow from '../components/CountryRow'
+import { Grid, Header } from 'semantic-ui-react'
 
-class CountryCollection extends React.Component {
+const CountryCollection = (props) => {
 
-    showCountries = () => {
-        return this.props.nations.map(nation => {
-            return <CountryCard
+    function showCountries() {
+        return props.nations.map(nation => {
+            return <CountryRow
                 key={nation.id}
                 {...nation}
             />
         })
     }
 
-    render() {
-        return(
-            <Grid columns={4} divided='vertically' relaxed>
-                {this.showCountries()}
+    return(
+        <div>
+            <Header block as="h1">Countries of the World</Header>
+            <Grid divided='vertically' relaxed>
+                {showCountries()}
             </Grid>
-        )
-    }
+        </div>
+    )
 }
 
 export default CountryCollection
