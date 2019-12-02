@@ -53,8 +53,9 @@ class QuizPage extends React.Component {
         this.setState({
             country: "",
             answered: null,
-            questions: 0,
-            score: 0
+            questions: 1,
+            score: 0,
+            finished: null
         })
     }
 
@@ -105,7 +106,7 @@ class QuizPage extends React.Component {
                 {finished ?
                     <Container>
                         Congratulations!  You got {score} out of 10 questions correct.<br></br>
-                        <Button>Play Again</Button>
+                        <Button onClick={this.reset}>Play Again</Button>
                     </Container> :null
                 }
             </div>
